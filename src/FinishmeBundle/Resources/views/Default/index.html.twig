@@ -1,0 +1,60 @@
+{% extends 'FinishmeBundle::layout.html.twig' %}
+
+{% block content %}
+<h1>Finish Me!</h1>
+<div class="row">
+	<div class="span6">
+		<p>Have you worked on a project you didn't finish but you think it's worth to be finished? Let the community know about it!</p>
+		<p><a href="{{ path('project_add') }}" class="btn btn-primary btn-large">Add a project</a></p>
+		<p>
+		GitHub, Google Code project can use the Quick Add form: 
+		<form method="post">
+		<fieldset>
+			<input type="url" name="url" value="" placeholder="Add the url"/>
+			<input type="submit" value="Add project"/>
+		</fieldset>
+		</form>
+		</p>
+	</div>
+	
+	<div class="span6">
+		<p>Find</p>
+		<p><a href="{{ path('project_find') }}" class="btn btn-primary btn-large">Find a Project to Finish</a></p>
+	</div>
+</div>
+<h2>Recently added projects</h2>
+{# TODO use the same template also for Project:index tempalte #}
+<table class="records_list table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Url</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('project_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.description }}</td>
+            <td>{{ entity.url }}</td>
+            <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('project_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('project_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'FinishmeBundle::layout.html.twig' %}
+
+{% block title %}Find a Project to Finish{% endblock %}
+<form action="{{ path("project_find" }}" mehtod="get">
+	<input type="text" name="q" value="" placeholder="Type to search" />
+	<input type="submit" value="Search"/>
+</form>
+
+{# TODO results#}

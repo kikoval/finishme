@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}Welcome!{% endblock %} | FinishMe</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    </head>
+    <body>
+    	
+    	<nav class="navbar">
+    		<div class="navbar-inner">
+	    		<div class="container">
+			    	<ul class="nav">
+			    		<li><a href="{{ path("homepage") }}">Home</a></li>
+			    		<li><a href="{{ path("project") }}">Projects to Finish</a></li>
+			    		<li><a href="{{ path("about") }}">About</a></li>
+			    	</ul>
+		    	</div>
+	    	</div>
+    	</nav>
+    	
+        {% block body %}{% endblock %}
+        
+        {% block javascripts %}{% endblock %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    	<script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+   		<script src="{{ asset('js/bootstrap.js') }}"></script>
+    </body>
+</html>

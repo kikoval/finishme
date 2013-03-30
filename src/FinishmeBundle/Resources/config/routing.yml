@@ -1,0 +1,11 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: FinishmeBundle:Default:index }
+
+about:
+    pattern: /about
+    defaults: { _controller: FinishmeBundle:About:index }
+
+FinishmeBundle_project:
+        resource: "@FinishmeBundle/Resources/config/project.yml"
+        prefix:   /project

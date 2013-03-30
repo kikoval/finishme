@@ -1,0 +1,34 @@
+project:
+    pattern:  /
+    defaults: { _controller: "FinishmeBundle:Project:index" }
+
+project_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "FinishmeBundle:Project:show" }
+
+project_add:
+    pattern:  /add
+    defaults: { _controller: "FinishmeBundle:Project:new" }
+
+project_create:
+    pattern:  /create
+    defaults: { _controller: "FinishmeBundle:Project:create" }
+    requirements: { _method: post }
+
+project_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FinishmeBundle:Project:edit" }
+
+project_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FinishmeBundle:Project:update" }
+    requirements: { _method: post }
+
+project_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FinishmeBundle:Project:delete" }
+    requirements: { _method: post }
+
+project_find:
+    pattern: /find
+    defaults: { _controller: "FinishmeBundle:Project:find" }
