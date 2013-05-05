@@ -50,6 +50,12 @@ assetic:
                 - less
                 - cssrewrite
             output: css/bootstrap.css
+        docs_css:
+            input:
+                - %kernel.root_dir%/../src/FinishmeBundle/Resources/public/css/docs.css
+            filters:
+                - cssrewrite
+            output: css/docs.css
         bootstrap_js:
             inputs:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-transition.js

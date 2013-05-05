@@ -45,9 +45,23 @@ class Project
     /**
      * @var \DateTime $created
      *
-     * @ORM\Column(name="created", type="datetime")
+     * @ORM\Column(name="createdOn", type="datetime")
      */
-    private $created;
+    private $createdOn;
+    
+    /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(name="modifiedOn", type="datetime")
+     */
+    private $modifiedOn;
+    
+    /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(name="foundedOn", type="date")
+     */
+    private $foundedOn;
 
 
     /**
@@ -130,26 +144,71 @@ class Project
     }
 
     /**
-     * Set created
+     * Set createdOn
      *
      * @param \DateTime $created
      * @return Project
      */
-    public function setCreated($created)
+    public function setCreatedOn($createdOn)
     {
-        $this->created = $created;
+        $this->createdOn = $createdOn;
     
         return $this;
     }
 
     /**
-     * Get created
+     * Get createdOn
      *
      * @return \DateTime 
      */
-    public function getCreated()
+    public function getCreatedOn()
     {
-        return $this->created;
+        return $this->createdOn;
     }
     
+    /**
+     * Set modifiedOn
+     *
+     * @param \DateTime $created
+     * @return Project
+     */
+    public function setModifiedOn($modifiedOn)
+    {
+    	$this->modifiedOn = $modifiedOn;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get modifiedOn
+     *
+     * @return \DateTime
+     */
+    public function getModifiedOn()
+    {
+    	return $this->modifiedOn;
+    }
+    
+    /**
+     * Set created
+     *
+     * @param \Date $created
+     * @return Project
+     */
+    public function setFoundedOn($foundedOn)
+    {
+    	$this->foundedOn = $foundedOn;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get created
+     *
+     * @return \Date
+     */
+    public function getFoundedOn()
+    {
+    	return $this->foundedOn;
+    }
 }

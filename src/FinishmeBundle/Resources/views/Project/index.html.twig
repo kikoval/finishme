@@ -3,7 +3,7 @@
 {% block title %}Projects{% endblock %}
 {% block content %}
 <h1>Project list</h1>
-<p><a href="{{ path('project_add') }}" class="btn">Add a project</a></p>
+<p><a href="{{ path('project_add') }}" class="btn">{{ 'plus-sign'|icon }} Add a project</a></p>
 <table class="records_list table-striped">
     <thead>
         <tr>
@@ -11,7 +11,8 @@
             <th>Name</th>
             <th>Description</th>
             <th>Url</th>
-            <th>Created</th>
+            <th>Founded on</th>
+            <th>Added on</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,7 +23,8 @@
             <td>{{ entity.name }}</td>
             <td>{{ entity.description }}</td>
             <td>{{ entity.url }}</td>
-            <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.foundedOn %}{{ entity.foundedOn|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.createdOn %}{{ entity.createdOn|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>
                 <ul>
                     <li>
@@ -38,5 +40,5 @@
     </tbody>
 </table>
 
-<p><a href="{{ path('project_add') }}" class="btn">Add a project</a></p>
+<p><a href="{{ path('project_add') }}" class="btn">{{ 'plus-sign'|icon }} Add a project</a></p>
 {% endblock %}

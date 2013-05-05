@@ -14,7 +14,7 @@ class ProjectType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('url', 'url')
-            ->add('created')
+            ->add('foundedOn')
         ;
     }
 

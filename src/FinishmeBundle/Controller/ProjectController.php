@@ -71,20 +71,23 @@ class ProjectController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity  = new Project();
-        $form = $this->createForm(new ProjectType(), $entity);
+        $project  = new Project();
+        $form = $this->createForm(new ProjectType(), $project);
         $form->bind($request);
 
         if ($form->isValid()) {
+        	$project->setCreatedOn(new \DateTime());
+        	$project->setModifiedOn(new \DateTime());
+        	
             $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
+            $em->persist($project);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('project_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('project_show', array('id' => $project->getId())));
         }
 
         return $this->render('FinishmeBundle:Project:new.html.twig', array(
-            'entity' => $entity,
+            'entity' => $project,
             'form'   => $form->createView(),
         ));
     }
@@ -97,17 +100,17 @@ class ProjectController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('FinishmeBundle:Project')->find($id);
+        $project = $em->getRepository('FinishmeBundle:Project')->find($id);
 
-        if (!$entity) {
+        if (!$project) {
             throw $this->createNotFoundException('Unable to find Project entity.');
         }
 
-        $editForm = $this->createForm(new ProjectType(), $entity);
+        $editForm = $this->createForm(new ProjectType(), $project);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('FinishmeBundle:Project:edit.html.twig', array(
-            'entity'      => $entity,
+            'entity'      => $project,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

@@ -1,4 +1,9 @@
 {% extends "::base.html.twig" %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/docs.css') }}" />
+{% endblock %}
+
+
 {% block body %}
 <div class="container">
 {% block content %}{% endblock %}
